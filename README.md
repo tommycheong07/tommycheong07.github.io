@@ -1,1 +1,1 @@
-# thomas-cheong.github.io blah blah
+# thomas-cheong.github.io
