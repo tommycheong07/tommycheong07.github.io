@@ -1,4 +1,25 @@
+.body {
+	min-width: 1000px;
+	background: #282828;
+	background: linear-gradient(-90deg, tan, lightblue);
+	background-size: 400% 400%;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
 .nav-bar li {
+	float: right;
 	margin: 30px;
 	text-align: center;
 }
@@ -10,17 +31,17 @@
 
 .nav-bar a {
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 15px;
 }
 
 .nav-bar a:visited {
 	text-decoration: none;
-	color: blue;
+	color: #000;
 }
 
-.info-text a:visited {
-	text-decoration: none;
-	color: blue;
+.nav-bar a:hover {
+	color: white;
+	transition: 0.5s;
 }
 
 .nav-bar {
@@ -28,4 +49,32 @@
 	text-align: center;
 	padding: 0;
 	margin: 0;
+}
+
+.info-text {
+	color: #000;
+}
+
+.info-text a{
+	color: #000;
+}
+.info-text a:hover{
+	color: white;
+	transition: 0.5s;
+}
+
+.media a{
+	margin: 10px 30px;
+	display: inline-block;
+	font-size: 30px;
+	padding: 10px;
+	color: black;
+	border: 1px solid black;
+	border-radius: 30%
+}
+
+.media a:hover{
+	color: white;
+	border: 1px solid white;
+	transition: 0.5s;
 }
