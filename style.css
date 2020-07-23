@@ -1,0 +1,31 @@
+.nav-bar li {
+	margin: 30px;
+	text-align: center;
+}
+
+.nav-link{
+	display: inline-block;
+	text-align: center;
+}
+
+.nav-bar a {
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.nav-bar a:visited {
+	text-decoration: none;
+	color: blue;
+}
+
+.info-text a:visited {
+	text-decoration: none;
+	color: blue;
+}
+
+.nav-bar {
+	width: 100%;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
