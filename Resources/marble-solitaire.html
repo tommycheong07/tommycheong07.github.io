@@ -1,0 +1,277 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous">
+</script><style media="screen" type="text/css">
+td {
+  width:40px;
+  height:40px;
+}
+.circle {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.num-input {
+  width: 30px;
+  border-radius: 20%;
+}
+</style>
+<title>Marble Solitaire</title>
+</head>
+<body style="font-family: Helvetica, sans-serif">
+<!--
+<select id="game-type">
+<option>English</option>
+<option>European</option>
+<option>Triangle</option>
+</select>
+-->
+Arm thickness: <input id="arm" type="text" class="num-input">
+<!-- Starting empty row: <input id="sRow" type="text" class="num-input">, column: <input id="sCol" type="text" class="num-input"> -->
+<button id="new-game" style="border-radius:5px">New Game</button>
+<table id="board" border="0"></table>
+<div style="display:none" id="score-disp">Score: <span id="score"></span></div>
+<div id="msg"></div>
+<script>
+var slotTpl = '<div class="circle" style="%%%"/>'; // html snippet for PEG/EMPTY
+// an "enum" representing slot values. PEG and EMPTY have styles.
+var Slot = {
+  PEG: 1,
+  EMPTY: 2,
+  INVALID: 3,
+  prop: {
+    1: {style: "background-color:#4b5bb3;box-shadow: inset -5px -5px 5px rgba(0,0,0,.5);"},
+    2: {style: "background-color:white;box-shadow: inset 4px 4px 5px rgba(0,0,0,.5);"}
+  }
+};
+class MarbleSolitaireView {
+  // set up the html table and score display
+  constructor(dim) {
+    if(dim <= 0) throw "Board side dimension must be positive";
+    this.boardSide = dim;
+    var tmpHtml = '';
+    for(var r = 0; r < dim; r++) {
+      tmpHtml += '<tr id="'+r+'">';
+      for(var c = 0; c < dim; c++) {
+        tmpHtml += '<td id="'+r+'-'+c+'"></td>';
+      }
+      tmpHtml += '</tr>';
+    }
+    $('#board').html(tmpHtml);
+    $('#score-disp').show();
+  }
+  // take a 2d array board, display it in the table; display given score
+  renderBoard(board, score) {
+    if(board.length != this.boardSide) {
+      throw "Invalid board dimension: " + board.length;
+    }
+    for(var r = 0; r < board.length; r++) {
+      if(board[r].length != this.boardSide) {
+        throw "Invalid board dimension: " + board[r].length;
+      }
+      for(var c = 0; c < board[r].length; c++) {
+        if(board[r][c] === Slot.PEG || board[r][c] === Slot.EMPTY) {
+          $('#'+r+'-'+c).html(slotTpl.replace(/%%%/, Slot.prop[board[r][c]].style));
+        }
+      }
+    }
+    $('#score').html(score);
+  }
+  // display a message below the board
+  setMessage(msg) {
+    $('#msg').html(msg);
+  }
+  // "highlight" a cell: change its background color to the given color.
+  // cells are 0-indexed from upper left to lower right
+  highlightCell(r, c, color) {
+    if(r < 0 || r >= this.boardSide || c < 0 || c >= this.boardSide) {
+      throw "Invalid cell position: " + r + "," + c;
+    }
+    $('#'+r+'-'+c).css('background-color', color);
+  }
+  // add a function to be executed when a cell is clicked. Function func must take
+  // two arguments, row and col (0-based indices, upper left to lower right)
+  addCellClickListener(func) {
+    $('td').click(function(evt) {
+      var cell = $(evt.target).attr('id') || $(evt.target).parent('td').attr('id');
+      var [row, col] = cell.split('-');
+      func(+row, +col);
+    });
+  }
+}
+/*** Don't modify code above this line. Fill in your code BELOW this line. *****/
+class MarbleSolitaireController {
+  // take in model m and view v
+  constructor(m, v) {
+    this.clicks = [];
+    this.m = m;
+    v.renderBoard(m.getBoard(), "");
+    // board starts out completely filled; first click selects empty slot, and game begins.
+    // to start out, may be easier to hardcode a starting empty slot, get the game play right, then deal with this.
+    v.setMessage("Click to select starting empty slot");
+    v.addCellClickListener(function(row, col) {
+      this.clicks.push({
+        'r': row,
+        'c': col,
+      });
+      v.highlightCell(row, col, "pink");
+      
+      if (this.clicks.length === 1) {
+        console.log('here');
+        m.setEmptySlot(row, col);
+        v.renderBoard(this.m.getBoard(), this.m.getScore());
+        v.setMessage("");
+        v.highlightCell(row, col, "white");
+        return;
+      }
+      
+      if ((this.clicks.length-1) % 2 === 0) {
+        try {
+      let originalSpot = this.clicks[this.clicks.length - 2];
+      var fR = originalSpot['r'];
+      var fC = originalSpot['c'];
+      var tR = row;
+      var tC = col;
+      console.log('fR', fR, 'fC', fC);
+      this.m.move(fR, fC, tR, tC);
+      console.log("row", row, "col", col);
+      console.log('###', this.clicks);
+      v.highlightCell(fR, fC, "white");
+      v.highlightCell(tR, tC, "white");
+      v.renderBoard(this.m.getBoard(), this.m.getScore());
+      v.setMessage("");
+    }
+    catch(err) {
+      v.setMessage("Invalid Move!");
+      v.highlightCell(fR, fC, "white");
+      v.highlightCell(tR, tC, "white");
+    }
+    }
+
+    if (this.m.isGameOver() === true) {
+      v.setMessage("Game Over!");
+    } 
+      /******* YOUR CODE HERE *******/
+      // fill in controller logic here. this is your "action listener" for clicks on the board.
+    }.bind(this));
+    // ^^^ ensure that in the body of the function "this" refers to the controller object, not the inner function context
+  }
+}
+// English style /**** YOUR CODE HERE *****/
+class MarbleSolitaireModel {
+  constructor(armLength) {
+    if(this.armLength % 2 == 0) {
+      throw "armlength has to be even";
+    }
+     this.armlength = armLength;
+     this.board = [];
+         for (var i = 0; i <= this.getBoardSide() - 1; i++) {
+      this.board[i] = [];
+      for (var j = 0; j < this.getBoardSide(); j++) {
+        this.board[i].push(Slot.INVALID);
+      }
+    }
+    for (var i = (this.armlength-1); i < this.getBoardSide() - (this.armlength-1); i++) {
+      for (var j = 0; j < this.getBoardSide(); j++) {
+    this.board[i][j] = Slot.PEG;
+  }
+}
+    for (var i = 0; i < this.getBoardSide(); i++) {
+      for (var j = this.armlength-1; j < this.getBoardSide() - (this.armlength-1); j++) {
+        this.board[i][j] = Slot.PEG;
+      }
+    }
+  }
+  getBoardSide() {
+    return 3*this.armlength-2;
+  }
+  getBoard() {
+    console.log('board2', this.board);
+    // return a 2d array of Slot representing current game state
+    return this.board;
+  }
+  // fill in the rest of the model here: move(), isGameOver(), etc
+  move(fromRow, fromCol, toRow, toCol) {
+      if (this.board[fromRow][fromCol] == Slot.EMPTY) {
+        throw "from peg cannot be empty";
+      }
+      if (this.board[toRow][toCol] == Slot.PEG) {
+        throw "to slot cannot be a peg"
+      }
+      if ((this.board[fromRow][fromCol] == Slot.PEG)
+            && (this.board[toRow][toCol] == Slot.EMPTY)
+            && (this.board[(fromRow + toRow) / 2][(fromCol + toCol) / 2] == Slot.PEG)
+            && (((Math.abs(fromRow - toRow) == 2 && (fromCol - toCol == 0))
+            || (Math.abs(fromCol - toCol) == 2 && (fromRow - toRow == 0))))) {
+        console.log("correct move");
+        this.board[fromRow][fromCol] = Slot.EMPTY;
+        this.board[toRow][toCol] = Slot.PEG;
+        this.board[(fromRow + toRow) / 2][(fromCol + toCol) / 2] = Slot.EMPTY;
+      }
+      else {
+        throw "Invalid Move!";
+      }
+  }
+  isGameOver() {
+
+    for (var i = 0; i < this.getBoardSide(); i++) {
+      for (var j = 0; j < this.getBoardSide(); j++) {
+        if (this.board[i][j] == Slot.PEG) {
+          if (j > 1) {
+            if ((this.board[i][j - 1] == Slot.PEG) && (this.board[i][j - 2] == Slot.EMPTY)) {
+              return false;
+            }
+          }
+          if (j < this.getBoardSide() - 2) {
+            if ((this.board[i][j + 1] == Slot.PEG) && (this.board[i][j + 2] == Slot.EMPTY)) {
+              return false;
+            }
+          }
+          if (i > 1) {
+            if ((this.board[i - 1][j] == Slot.PEG) && (this.board[i - 2][j] == Slot.EMPTY)) {
+              return false;
+            }
+          }
+          if (i < this.getBoardSide() - 2) {
+            if ((this.board[i + 1][j] == Slot.PEG) && (this.board[i + 2][j] == Slot.EMPTY)) {
+              return false;
+            }
+          }
+        }
+      }
+    }
+    return true;
+
+  }
+  getScore() {
+    var total = 0;
+    for (var i = 0; i < this.getBoardSide(); i++) {
+      for (var j = 0; j < this.getBoardSide(); j++) {
+        if (this.board[i][j] == Slot.PEG) {
+          total ++;
+        }
+      }
+    }
+    return total;
+  }
+  setEmptySlot(r, c) {
+    console.log('this is empty', r, c);
+    this.board[r][c] = Slot.EMPTY;
+  }
+}
+var model, view, ctrl;
+$('#new-game').click(function(evt) {
+  try {
+    model = new MarbleSolitaireModel($('#arm').val());
+    view = new MarbleSolitaireView(model.getBoardSide());
+    ctrl = new MarbleSolitaireController(model, view);
+  } catch(err) {
+    alert(err);
+  } 
+});
+</script>
+</body>
+</html>

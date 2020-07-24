@@ -1,0 +1,49 @@
+body {
+	min-width: 1000px;
+	background: #282828;
+	background: linear-gradient(-45deg, royalblue, steelblue, snow);
+	background-size: 400% 400%;
+	animation: Gradient 20s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.work {
+	text-align: center;
+	width: 100%;
+}
+
+.work img {
+	transition: 1s ease;
+	margin: 1%;
+	width: 250px;
+	height: 250px;
+}
+.work img:hover {
+	-webkit-transform: scale(0.8);
+	-ms-transform: scale(0.8);
+	transform: scale(0.8);
+	transition: 1s ease;
+}
+
+footer p {
+	text-align: left;
+	color: black;
+	padding-left: 20px;
+	margin: 60px auto;
+}
+
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+} 

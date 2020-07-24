@@ -32,11 +32,12 @@
 .nav-bar a {
 	text-decoration: none;
 	font-size: 15px;
+	color: black;
 }
 
 .nav-bar a:visited {
 	text-decoration: none;
-	color: #000;
+	color: black;
 }
 
 .nav-bar a:hover {
