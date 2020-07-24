@@ -1,9 +1,9 @@
 .body {
 	min-width: 1000px;
 	background: #282828;
-	background: linear-gradient(-45deg, lightblue, royalblue, snow);
+	background: linear-gradient(-45deg, royalblue, steelblue, snow);
 	background-size: 400% 400%;
-	animation: Gradient 10s ease infinite;
+	animation: Gradient 20s ease infinite;
 }
 
 @-webkit-keyframes Gradient {
