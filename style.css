@@ -1,9 +1,10 @@
 .body {
 	min-width: 1000px;
 	background: #282828;
-	background: linear-gradient(-45deg, royalblue, steelblue, snow);
+	background: linear-gradient(-45deg, steelblue, lightsteelblue, snow);
 	background-size: 400% 400%;
 	animation: Gradient 20s ease infinite;
+	min-height: 100%;
 }
 
 @-webkit-keyframes Gradient {
@@ -78,4 +79,14 @@
 	color: white;
 	border: 1px solid white;
 	transition: 0.5s;
+}
+
+.info-row {
+	min-height: 97%;
+}
+
+footer {
+	text-align: left;
+	color: black;
+	padding-left: 20px;
 }
