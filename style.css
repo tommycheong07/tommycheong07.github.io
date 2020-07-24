@@ -1,7 +1,7 @@
 .body {
 	min-width: 1000px;
 	background: #282828;
-	background: linear-gradient(-90deg, tan, lightblue);
+	background: linear-gradient(-45deg, lightblue, snow);
 	background-size: 400% 400%;
 	animation: Gradient 15s ease infinite;
 }
@@ -64,7 +64,7 @@
 }
 
 .media a{
-	margin: 10px 30px;
+	margin: 5px 60px;
 	display: inline-block;
 	font-size: 30px;
 	padding: 10px;
