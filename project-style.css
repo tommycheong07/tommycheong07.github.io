@@ -1,0 +1,83 @@
+body {
+	min-width: 1280px;
+	background: #282828;
+	background: linear-gradient(-45deg, steelblue, lightsteelblue, snow);
+	background-size: 400% 400%;
+	animation: Gradient 20s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.back-button {
+	padding-left: 5%;
+}
+
+.back-button a {
+	color: black;
+}
+
+.back-button a:hover {
+	color: white;
+	transition: 0.5s;
+}
+
+.proj-with-text {
+	float: left;
+	text-align: center;
+	width: 23%;
+}
+.project-text p {
+	padding-top: 5%;
+	color: black;
+	padding-bottom: 5%;
+}
+
+.project-text a {
+	text-decoration: none;
+	color: black;
+}
+
+.project-text a:hover {
+	color: white;
+	transition: 0.5s;
+}
+
+.work {
+	min-height: 87vh;
+	padding-top: 7%;
+}
+
+.work img {
+	transition: 1s ease;
+	width: 250px;
+	height: 250px;
+}
+.work img:hover {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+	transition: 1s ease;
+}
+
+footer {
+	text-align: left;
+	color: black;
+	padding-left: 20px;
+}
+
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	min-height: 100%;
+} 
