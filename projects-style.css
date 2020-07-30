@@ -1,0 +1,59 @@
+body {
+	min-width: 1280px;
+	background: #282828;
+	background: linear-gradient(-45deg, steelblue, lightsteelblue, snow);
+	background-size: 400% 400%;
+	animation: Gradient 20s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.proj-with-text {
+	float: left;
+	text-align: center;
+	margin: 1%;
+	width: 23%;
+}
+
+.proj-with-text p {
+	color: black;
+}
+
+.work {
+	min-height: 87vh;
+}
+
+.work img {
+	transition: 1s ease;
+	width: 250px;
+	height: 250px;
+}
+.work img:hover {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+	transition: 1s ease;
+}
+
+footer {
+	text-align: left;
+	color: black;
+	padding-left: 20px;
+}
+
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	min-height: 100%;
+} 
