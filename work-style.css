@@ -1,5 +1,5 @@
 body {
-	min-width: 1280px;
+	/*min-width: 1050px;*/
 	background: #282828;
 	background: linear-gradient(-45deg, steelblue, lightsteelblue, snow);
 	background-size: 400% 400%;
@@ -18,11 +18,13 @@ body {
 	}
 }
 
+.img-center {
+	margin:0 auto;
+}
+
 .proj-with-text {
 	float: left;
 	text-align: center;
-	margin: 1%;
-	width: 23%;
 }
 
 .proj-with-text p {

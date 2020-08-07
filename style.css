@@ -1,5 +1,5 @@
 .body {
-	min-width: 1280px;
+	/*min-width: 1200px;*/
 	background: #282828;
 	background: linear-gradient(-45deg, steelblue, lightsteelblue, snow);
 	background-size: 400% 400%;
@@ -17,6 +17,11 @@
 	100% {
 		background-position: 0% 50%
 	}
+}
+
+.photo img {
+	width:210px;
+	height:310px;
 }
 
 .nav-bar li {
@@ -90,3 +95,11 @@ footer {
 	color: black;
 	padding-left: 20px;
 }
+
+/* Smartphones (portrait and landscape) ----------- */
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.photo img {
+		width:70%;
+		height:15%;
+	}
+}*/
