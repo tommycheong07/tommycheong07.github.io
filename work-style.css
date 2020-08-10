@@ -25,6 +25,7 @@ body {
 .proj-with-text {
 	float: left;
 	text-align: center;
+	padding-top: 20px;
 }
 
 .proj-with-text p {
