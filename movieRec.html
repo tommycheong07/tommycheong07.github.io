@@ -1,0 +1,71 @@
+<html>
+<link rel="stylesheet" type="text/css" href="project-style.css">
+<head>
+	<meta name="viewport" content="width=device-width">
+
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.center {
+			text-align: center;
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class = "wrapper">
+		<nav>
+			<ul type="" class = "col-xs-12 nav-bar">
+				<li class="nav-link"><a href = "/">Home</a></li>
+				<li class="nav-link"><a href = "Resources\Resume.pdf" target="_blank">Resume</a></li>
+				<li class="nav-link"><a href = "projects.html">Projects</a></li>
+			</ul>
+		</nav>
+
+		<div class = "col-xs-12 back-button" style="padding-left: 10%">
+			<a href="projects.html">< Back </a>
+		</div>
+
+		<div class="col-xs-12 center">
+			<h1>Movie Recommendation App</h1>
+		</div> 
+
+		<div class = "work">
+			<div class="col-xs-12 center proj-with-text">
+				<a href="https://github.com/tommycheong07/MovieRecommendation" target="_blank">
+				<img src="Resources\movieRec.png" alt="movieRec img">
+				</a>
+			</div>
+			<div class = "project-text"> 
+				<div class = "col-xs-2 col-lg-3"></div>
+				<div class = "col-xs-8 col-lg-6 center">
+					<p>This was my big summer 2020 <a href="https://github.com/tommycheong07/MovieRecommendation" target="_blank"> <b><u>project</u></b> </a> where I wanted to create a movie recommendation app. The database and backend functions of scraping the IMDb website and inputting it in a psql database was done by using python and BeautifulSoup. Then the front end interaction was created using HTML/CSS/JavaScript. To connect the backend and front end, I built and api using Flask that would allow for getting data in the psql database given query params that the user selected in the input tags they choose in the front end.<br><br> 
+
+					With this movie recommendation app, the user can select actors/actresses they want to search for as well as for generes they would like to watch. After clicking search, the first table will be populated with the top 10 rated movies that satisfy your selection of actors and or genres. Next, to go further, I created a way for a second table to be populated with 5 movies that you may like based on your criteras. How this works is that the algorithm will go through all the movies queried based on your criteras and look for the top 3 co-stars that have appeared in those movies. Lastly, from those movies, it will show the top 5 rated movies that we think you may also like.</p>
+				</div>
+				<div class = "col-xs-2 col-lg-3"></div>
+			</div>
+			<div class = "col-xs-12 center recording">
+				<iframe width="350px" height="200px" src="https://www.youtube.com/embed/709ZUf3EmXU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+
+
+		<div class = "col-xs-12">
+		<footer> <br /><br /><br />© 2020 by Thomas Cheong</footer>
+		</div>
+
+	</div>
+
+
+
+</body>
+</html>
