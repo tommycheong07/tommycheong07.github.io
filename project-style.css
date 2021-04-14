@@ -69,6 +69,22 @@ body {
 	transition: 1s ease;
 }
 
+.large-work {
+	min-height: 87vh;
+}
+
+.large-work img {
+	transition: 1s ease;
+	width: 350px;
+	height: 250px;
+}
+.large-work img:hover {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+	transition: 1s ease;
+}
+
 footer {
 	text-align: left;
 	color: black;

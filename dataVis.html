@@ -1,0 +1,76 @@
+<html>
+<link rel="stylesheet" type="text/css" href="project-style.css">
+<head>
+	<meta name="viewport" content="width=device-width">
+
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.center {
+			text-align: center;
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class = "wrapper">
+		<nav>
+			<ul type="" class = "col-xs-12 nav-bar">
+				<li class="nav-link"><a href = "/">Home</a></li>
+				<li class="nav-link"><a href = "Resources\Resume.pdf" target="_blank">Resume</a></li>
+				<li class="nav-link"><a href = "projects.html">Projects</a></li>
+			</ul>
+		</nav>
+
+		<div class = "col-xs-12 back-button" style="padding-left: 10%">
+			<a href="projects.html">< Back </a>
+		</div>
+
+		<div class="col-xs-12 center">
+			<h1>Philadelphia Food Delivery Data Visualization</h1>
+		</div> 
+
+		<div class="large-work">
+			<div class="col-xs-12 center proj-with-text">
+				<a href="https://github.com/NEU-DS-4200-F20/project-group-3-philly-food-delivery" target="_blank">
+				<img src="Resources\DataVis.png" alt="DataVis img">
+				</a>
+			</div>
+			<div class = "project-text"> 
+				<div class = "col-xs-2 col-lg-3"></div>
+				<div class = "col-xs-8 col-lg-6 center">
+					<p>This was my final project for my Data Visualization class during Fall 2020. We worked alongside a food delivery logistics client and leverage their data to provide insight and analysis on delivery cost efficiency using JavaScript and D3. Our theory was that most mature delivery restaurants lose money on their delivery orders. This is because of the premiums introduced by do-it-all delivery services like GrubHub or DoorDash. This project aims to leverage data that we get from our undisclosed partner in the logistics industry to provide insight and analysis on delivery cost efficiency. The goal is to enable restaurants to make better informed operational decisions that will be beneficial for maintaining profit margins in the delivery market. Restaurant owners do not necessarily have the time to dig into nuanced financial information, so our project is an attempt to provide insightful content at-a-glance. Based on our dataset of the Philadelphia delivery market, most restaurants have the ability to save significantly by outsourcing delivery to delivery-only logistics companies. <br> <br>
+
+					For the visualization design, we decided to implement two bar charts as well as two pie charts. The bar charts help visualize the top 10 restaurants and their related order volume data as well as their average distance (in miles) for all orders. We added hover-linking through both bar charts that will change the color of the hovered bar to show the relation between the two charts. It will also link the same restaurant data together between the two bar charts. There is also a tool-tip included for the user to find the specific order volume or average order distance for that specific restaurant when hovering. Given that information, we implemented details on demand pie charts for the bar the user ends up hovering over. The pie charts help distinguish the distribution of order origin (grubhub, snackpass, etc...) as well as the distribution of orders outside delivery zones for that specific restaurant. If no bars are hovered, then the pie charts represent data for all 10 restaurants, whereas, if a bar is hovered, only that specific restaurant data is shown. To elevate our project further, we decided to include a cost reduction aspect to our visualizations. The cost reduction/saving represents the 20% premium restaurants pay for competitors to provide logistics. The number shown is what restaurants can save if they convert competitor orders to our partner company. In order to make our findings realistic, our cost savings calculation assumes that restaurants can convert 50% of competitor orders within our partner’s delivery zones to our partner. Similar to the pie chart, the cost savings is a detail on demand where if no restaurant bar is hovered, it represents total cost savings by all 10 restaurants. <br><br>
+					
+					Link to <a href = "https://github.com/NEU-DS-4200-F20/project-group-3-philly-food-delivery"target="_blank"><b><u>GitHub Repo</u></b></a> and <a href = "https://neu-ds-4200-f20.github.io/project-group-3-philly-food-delivery/"target="_blank"><b><u>GitHub Webpage</u></b></a>
+					</p>
+				</div>
+				<div class = "col-xs-2 col-lg-3"></div>
+			</div>
+			<div class = "col-xs-12 center recording">
+				<video width="400" height="300" controls loop>
+					<source src="Resources\DataVis_Demo.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div>
+
+
+		<div class = "col-xs-12">
+		<footer> <br /><br /><br />© 2020 by Thomas Cheong</footer>
+		</div>
+
+	</div>
+
+
+
+</body>
+</html>
