@@ -19,6 +19,17 @@ body {
 
 .back-button {
 	padding-left: 5%;
+	font-family: Bookman, URW Bookman L, serif; 
+	font-size: 120%;
+
+}
+
+.proj-title {
+	font-family: Bookman, URW Bookman L, serif;
+}
+
+footer {
+	font-family: Bookman, URW Bookman L, serif; 
 }
 
 .back-button a {
@@ -36,10 +47,11 @@ body {
 	width: 23%;
 }
 .project-text p {
+	font-family: Bookman, URW Bookman L, serif; 
+	font-size: 120%;
 	padding-top: 5%;
 	color: black;
 	padding-bottom: 5%;
-	font-size: 15px;
 }
 
 .project-text a {
