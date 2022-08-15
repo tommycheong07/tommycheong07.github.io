@@ -107,3 +107,7 @@ footer {
 	color: black;
 	padding-left: 20px;
 }
+
+.website-title {
+	display: hidden;
+}
